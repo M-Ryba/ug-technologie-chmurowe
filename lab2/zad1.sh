@@ -1,13 +1,13 @@
 #!/bin/bash
 
+# Ustalamy wersję Node.js i port
+NODE_VERSION="12"
+PORT="8063"
+
 # Funkcja do wyświetlania informacji o krokach
 info() {
   echo -e "\n\033[1;34m[$1]\033[0m $2"
 }
-
-# Ustalamy wersję Node.js i port
-NODE_VERSION="12"
-PORT="8063"
 
 info "KONFIGURACJA" "Używam Node.js w wersji $NODE_VERSION"
 
@@ -60,9 +60,9 @@ docker exec -d -w /app $CONTAINER_ID node app.js
 # Sprawdzamy czy serwer zwraca Hello World
 sleep 3
 if [[ "$(curl -s http://localhost:$PORT)" == "Hello World" ]]; then
-  echo "Sukces: Serwer zwrócił Hello World"
+  info "SPRAWDZANIE" "Sukces: Serwer zwrócił Hello World"
 else
-  echo "Błąd: Oczekiwana odpowiedź nie została znaleziona"
+  info "SPRAWDZANIE" "Błąd: Oczekiwana odpowiedź nie została znaleziona"
 fi
 
 # Na końcu pokazujemy instrukcje jak zatrzymać i usunąć kontener
