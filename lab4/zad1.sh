@@ -19,7 +19,7 @@ cat > index.html << EOF
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Demo Nginx App</title>
+  <title>Demo Nginx App 1</title>
 </head>
 <body>
   <h1>Hello from Nginx with Docker Volume!</h1>
