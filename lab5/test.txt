@@ -1,0 +1,4 @@
+docker build -t lab5:1.0 .
+docker run -p 8043:8043 lab5
+
+docker build -t lab5:1.0 --build-arg PYTHON_VERSION=3.11 --build-arg APP_PORT=5000 .
