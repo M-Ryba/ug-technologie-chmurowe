@@ -1,0 +1,30 @@
+version: "3.0"
+
+services:
+  mongo:
+    image: mongo:${MONGO_VERSION}
+    container_name: db
+    ports:
+      - "${MONGO_PORT}:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - net_A
+  flask:
+    image: flask-app:latest
+    build: ./flask-app
+    depends_on:
+      - mongo
+    container_name: server
+    ports:
+      - "3003:3003"
+    networks:
+      - net_A
+
+volumes:
+  mongo_data:
+
+networks:
+  net_A:
+    external: false
+    name: net_A
