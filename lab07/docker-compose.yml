@@ -11,8 +11,8 @@ services:
     networks:
       - net_A
   flask:
-    image: flask-app:latest
     build: ./flask-app
+    image: flask-app:latest
     depends_on:
       - mongo
     container_name: server
