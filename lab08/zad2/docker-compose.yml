@@ -1,0 +1,20 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: lab08-zad2-redis
+    networks:
+      - lab08-zad2
+  app:
+    build: ./express-app
+    container_name: lab08-zad2-express-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+    networks:
+      - lab08-zad2
+
+networks:
+  lab08-zad2:
+    external: false
+    name: lab08-zad2
