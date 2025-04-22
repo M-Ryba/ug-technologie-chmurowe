@@ -2,7 +2,7 @@ const express = require("express");
 const redis = require("redis");
 
 const PORT = 3000;
-const REDIS_HOST = "lab08-zad2-redis";
+const REDIS_HOST = "redis";
 const REDIS_PORT = 6379;
 
 const app = express();
