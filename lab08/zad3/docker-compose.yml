@@ -1,0 +1,39 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: lab08-zad3-redis
+    networks:
+      - lab08-zad3
+  postgres:
+    image: postgres:latest
+    container_name: lab08-zad3-postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secretpassword
+      - POSTGRES_DB=users
+    networks:
+      - lab08-zad3
+  nginx:
+    image: nginx:latest
+    container_name: lab08-zad3-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - lab08-zad3
+  app:
+    build: ./express-app
+    container_name: lab08-zad3-express-app
+    depends_on:
+      - redis
+      - postgres
+    networks:
+      - lab08-zad3
+
+networks:
+  lab08-zad3:
+    external: false
+    name: lab08-zad3

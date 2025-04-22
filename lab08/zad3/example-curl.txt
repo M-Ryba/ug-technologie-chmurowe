@@ -1,0 +1,7 @@
+curl -X POST http://localhost/messages -H "Content-Type: application/json" -d '{"id": "1", "message": "First message"}'
+
+curl http://localhost/messages/1
+
+curl -X POST http://localhost/users -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com"}'
+
+curl http://localhost/users/1
