@@ -7,10 +7,10 @@ app.get("/info", (req, res) => {
     service: "mikroserwis_b",
     version: "1.0.0",
     time: new Date().toISOString(),
-    message: "Odpowiedź z mikroserwisu B",
+    message: "Odpowiedź z mikroserwis_b",
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`Mikroserwis_b działa na porcie ${PORT}`);
+  console.log(`mikroserwis_b działa na porcie ${PORT}`);
 });

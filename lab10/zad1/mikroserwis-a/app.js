@@ -11,14 +11,14 @@ app.get("/", async (req, res) => {
   try {
     const response = await axios.get(`${MIKROSERVICE_B_URL}/info`);
     res.json({
-      message: "Odpowiedź z mikroserwisu_a",
+      message: "Odpowiedź z mikroserwis_a",
       time: new Date().toISOString(),
       dataFromServiceB: response.data,
     });
   } catch (error) {
-    console.error("Błąd podczas komunikacji z mikroserwisem_b:", error.message);
+    console.error("Błąd podczas komunikacji z mikroserwis_b:", error.message);
     res.status(500).json({
-      error: "Nie udało się połączyć z mikroserwisem_b",
+      error: "Nie udało się połączyć z mikroserwis_b",
       details: error.message,
     });
   }
