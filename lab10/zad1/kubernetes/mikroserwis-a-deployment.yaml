@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mikroserwis-a-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mikroserwis-a
+  template:
+    metadata:
+      labels:
+        app: mikroserwis-a
+    spec:
+      containers:
+        - name: mikroserwis-a
+          image: mikroserwis-a:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"

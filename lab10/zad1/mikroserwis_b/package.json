@@ -1,0 +1,12 @@
+{
+  "name": "mikroserwis_b",
+  "version": "1.0.0",
+  "description": "Mikroserwis B, który wystawia API",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
