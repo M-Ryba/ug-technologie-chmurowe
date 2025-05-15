@@ -2,12 +2,11 @@
 minikube start
 # Przełączanie na środowisko Minikube
 eval $(minikube docker-env)
-# /mikroserwis-a
-docker build -t mikroserwis-a:latest .
-# /mikroserwis-b
-docker build -t mikroserwis-b:latest .
-# /kubernetes
-kubectl apply -f .
+
+docker build -t mikroserwis-a:latest ./mikroserwis-a
+docker build -t mikroserwis-b:latest ./mikroserwis-b
+
+kubectl apply -f ./kubernetes
 
 # Przekierowanie portu (blokuje terminal)
 kubectl port-forward service/mikroserwis-a-service 8888:3000
